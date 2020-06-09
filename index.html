@@ -117,14 +117,10 @@
 
     isPNG : true,
     Save : function(){
-      //for(var i= 0;i< 50;i++){
-      //setTimeout(() => {
-      //saveFrames("The Matrix", "gif");
-      //}, 30)
-      //}
       var gif = new GIF({
         workers: 2,
-        quality: 10
+        quality: 10,
+        opacity：0.1
       });
 
       var canvasElement = document.getElementById('defaultCanvas0');
