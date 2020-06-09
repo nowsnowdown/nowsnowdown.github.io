@@ -91,7 +91,7 @@
 
   var type;
   var options ={  
-    Background : '#FFFFFF',
+    Background : '#ffffff',
     Color : '#01FF45',
     Opacity: 150,
     Unicode : 'Katakana',
@@ -117,11 +117,6 @@
 
     isPNG : true,
     Save : function(){
-      //for(var i= 0;i< 50;i++){
-      //setTimeout(() => {
-      //saveFrames("The Matrix", "gif");
-      //}, 30)
-      //}
       var gif = new GIF({
         workers: 2,
         quality: 10,
@@ -131,7 +126,6 @@
 
       var canvasElement = document.getElementById('defaultCanvas0');
       var context = canvasElement.getContext('2d');
-      context.fillStyle = 'rgba(256,256,256,0)';
       console.log(canvasElement)
       for (var i = 0; i< 100; i++) {
         console.log(i)
