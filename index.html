@@ -91,7 +91,7 @@
 
   var type;
   var options ={  
-    Background : '#FFFFFF',
+    Background : '#01FF45',
     Color : '#01FF45',
     Opacity: 150,
     Unicode : 'Katakana',
@@ -122,7 +122,7 @@
       //saveFrames("The Matrix", "gif");
       //}, 30)
       //}
-      var gif = new GIF({
+      var mov = new MOV({
         workers: 2,
         quality: 10
       });
@@ -133,22 +133,22 @@
       console.log(canvasElement)
       for (var i = 0; i< 100; i++) {
         console.log(i)
-        gif.addFrame(canvasElement, {delay: 100});
+        mov.addFrame(canvasElement, {delay: 100});
       }
 
-      gif.on('finished', function(blob) {
+      mov.on('finished', function(blob) {
         console.log(blob)
         console.log('download')
         const a = document.createElement("a");
         const url = window.URL.createObjectURL(blob);
-        const filename = 'rain.gif';
+        const filename = 'rain.mov';
         a.href = url;
         a.download = filename;
         a.click();
         window.URL.revokeObjectURL(url);
       });
     
-      gif.render();
+      mov.render();
     },
   }
 
