@@ -120,16 +120,24 @@
       var gif = new GIF({
         workers: 2,
         quality: 10,
+        background: '#ffffff',//原透明色替换为白色
+	      transparent: 0xffffff//把图片中的白色替换为gif的透明色
       });
 
-      var canvasElement = document.getElementById('defaultCanvas0');
-      var context = canvasElement.getContext('2d');
-      console.log(canvasElement)
-      for (var i = 0; i< 100; i++) {
-        console.log(i)
-        gif.addFrame(canvasElement, {delay: 100});
-      }
-
+      gif.addFrame(imageElement);
+//或添加一个canvas对象的像素到当前帧
+gif.addFrame(document.getElementsByTagName('canvas')[0], {
+	delay: 200
+});
+gif.addFrame(document.getElementsByTagName('canvas')[0], {
+	delay: 200
+});
+gif.addFrame(document.getElementsByTagName('canvas')[0], {
+	delay: 200
+});
+//从canvas context复制像素到当前帧
+gif.addFrame(ctx, {
+	copy: true
       gif.on('finished', function(blob) {
         console.log(blob)
         console.log('download')
