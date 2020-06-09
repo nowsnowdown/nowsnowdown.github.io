@@ -11,11 +11,11 @@
 
   <link rel="stylesheet" type="text/css" href="fonts.css">
 
-  <script type="text/javascript" src="./dat.gui.min.js"></script>
-  <script type="text/javascript" src="./p5.min.js"></script>
-  <script type="text/javascript" src="./p5.dom.min.js"></script>
-  <script type="text/javascript" src="./gif.js"></script>
-  <script type="text/javascript" src="./gif.worker.js"></script>
+  <script type="text/javascript" src="./js/dat.gui.min.js"></script>
+  <script type="text/javascript" src="./js/p5.min.js"></script>
+  <script type="text/javascript" src="./js/p5.dom.min.js"></script>
+  <script type="text/javascript" src="./js/gif.js"></script>
+  <script type="text/javascript" src="./js/gif.worker.js"></script>
 
   </head><body><input id="img-path" type="file">
   
@@ -122,33 +122,33 @@
       //saveFrames("The Matrix", "gif");
       //}, 30)
       //}
-       var gif = new GIF({
-         workers: 2,
-         quality: 10
-       });
+      var gif = new GIF({
+        workers: 2,
+        quality: 10
+      });
 
-       var canvasElement = document.getElementById('defaultCanvas0');
-       var context = canvasElement.getContext('2d');
-       context.fillStyle = 'rgba(255, 255, 255, 0)';
-       console.log(canvasElement)
-       for (var i = 0; i< 12000; i++) {
-         console.log(i)
-         gif.addFrame(canvasElement, {delay: 200});
-       }
+      var canvasElement = document.getElementById('defaultCanvas0');
+      var context = canvasElement.getContext('2d');
+      context.fillStyle = 'rgba(255, 255, 255, 0)';
+      console.log(canvasElement)
+      for (var i = 0; i< 12000; i++) {
+        console.log(i)
+        gif.addFrame(canvasElement, {delay: 200});
+      }
 
-       gif.on('finished', function(blob) {
-         console.log(blob)
-         console.log('download')
-         const a = document.createElement("a");
-         const url = window.URL.createObjectURL(blob);
-         const filename = 'rain.gif';
-         a.href = url;
-         a.download = filename;
-         a.click();
-         window.URL.revokeObjectURL(url);
-       });
-      
-       gif.render();
+      gif.on('finished', function(blob) {
+        console.log(blob)
+        console.log('download')
+        const a = document.createElement("a");
+        const url = window.URL.createObjectURL(blob);
+        const filename = 'rain.gif';
+        a.href = url;
+        a.download = filename;
+        a.click();
+        window.URL.revokeObjectURL(url);
+      });
+    
+      gif.render();
     },
   }
 
