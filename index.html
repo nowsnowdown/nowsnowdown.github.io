@@ -90,7 +90,8 @@
 <script type="text/javascript">
 
   var type;
-  var options ={  
+  var options ={
+    Background: rgba(0,0,0,0),
     Color : '#01FF45',
     Opacity: 150,
     Unicode : 'Katakana',
@@ -119,8 +120,6 @@
       var gif = new GIF({
         workers: 2,
         quality: 10,
-        background: '#ffffff',//原透明色替换为白色
-	      transparent: 0xffffff//把图片中的白色替换为gif的透明色
       });
 
       gif.addFrame(imageElement);
