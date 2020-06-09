@@ -129,11 +129,11 @@
 
       var canvasElement = document.getElementById('defaultCanvas0');
       var context = canvasElement.getContext('2d');
-      context.fillStyle = 'rgba(255, 255, 255, 0)';
+      context.fillStyle = 'rgba(0, 0, 0, 0)';
       console.log(canvasElement)
       for (var i = 0; i< 100; i++) {
         console.log(i)
-        gif.addFrame(canvasElement, {delay: 200});
+        gif.addFrame(canvasElement, {delay: 100});
       }
 
       gif.on('finished', function(blob) {
