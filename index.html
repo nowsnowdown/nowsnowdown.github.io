@@ -91,7 +91,7 @@
 
   var type;
   var options ={  
-    Background : '#FFFFFF',
+    Background : '#00FFFFFF',
     Color : '#01FF45',
     Opacity: 150,
     Unicode : 'Katakana',
@@ -130,7 +130,7 @@
       var canvasElement = document.getElementById('defaultCanvas0');
       var context = canvasElement.getContext('2d');
       console.log(canvasElement)
-      for (var i = 0; i<50; i++) {
+      for (var i = 0; i<100; i++) {
         console.log(i)
         gif.addFrame(canvasElement, {delay: 10});
       }
