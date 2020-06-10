@@ -124,8 +124,6 @@
         //我觉得可以设置为rgb颜色的对立色，就能百分百导出合适的了黑色和白色会导致不透明度的变换。
       });
 
-gif.addFrame(imageElement);
-//或添加一个canvas对象的像素到当前帧
 gif.addFrame(document.getElementsByTagName('canvas')[0], {
 	delay: 10
 });
