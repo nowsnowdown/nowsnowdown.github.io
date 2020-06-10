@@ -116,13 +116,7 @@
     },
 
     isPNG : false,
-    clear（）,
     Save : function(){
-      //for(var i= 0;i< 50;i++){
-      //setTimeout(() => {
-      //saveFrames("The Matrix", "gif");
-      //}, 30)
-      //}
       var gif = new GIF({
         workers: 2,
         quality: 10,
@@ -132,6 +126,7 @@
       var canvasElement = document.getElementById('defaultCanvas0');
       var context = canvasElement.getContext('2d');
       context.fillStyle = 'rgba(0, 0, 0, 0)';
+      transparent: 0xffffff;
       console.log(canvasElement)
       for (var i = 0; i< 10; i++) {
         console.log(i)
