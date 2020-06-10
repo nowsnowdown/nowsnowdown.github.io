@@ -120,11 +120,11 @@
       var gif = new GIF({
         workers: 2,
         quality: 10,
+        context.fillStyle = "#fff"
       });
 
       var canvasElement = document.getElementById('defaultCanvas0');
       var context = canvasElement.getContext('2d');
-        context.fillStyle = "#fff"; 
       console.log(canvasElement)
       for (var i = 0; i< 10; i++) {
         console.log(i)
