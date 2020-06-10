@@ -91,7 +91,7 @@
 
   var type;
   var options ={  
-    Background : '#6d999a',
+    Background : '#ffffff',
     Color : '#01FF45',
     Opacity: 150,
     Unicode : 'Katakana',
@@ -126,6 +126,7 @@
       var gif = new GIF({
         workers: 2,
         quality: 10,
+        transparent: 0xffffff
       });
 
       var canvasElement = document.getElementById('defaultCanvas0');
