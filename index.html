@@ -117,23 +117,29 @@
 
     isPNG : true,
     Save : function(){
-      //for(var i= 0;i< 50;i++){
-      //setTimeout(() => {
-      //saveFrames("The Matrix", "gif");
-      //}, 30)
-      //}
       var gif = new GIF({
         workers: 2,
-        quality: 10
+        quality: 10,
+        transparent: 0x000000
+        //我觉得可以设置为rgb颜色的对立色，就能百分百导出合适的了黑色和白色会导致不透明度的变换。
       });
 
-      var canvasElement = document.getElementById('defaultCanvas0');
-      var context = canvasElement.getContext('2d');
-      context.fillStyle = '#fff';
-      console.log(canvasElement)
-      for (var i = 0; i< 10; i++) {
-        console.log(i)
-        gif.addFrame(canvasElement, {delay: 10});
+gif.addFrame(imageElement);
+//或添加一个canvas对象的像素到当前帧
+gif.addFrame(document.getElementsByTagName('canvas')[0], {
+	delay: 10
+});
+gif.addFrame(document.getElementsByTagName('canvas')[0], {
+	delay: 10
+});
+gif.addFrame(document.getElementsByTagName('canvas')[0], {
+	delay: 10
+});
+//从canvas context复制像素到当前帧
+gif.addFrame(ctx, {
+	copy: true
+});
+//合成图片成功后
       }
 
       gif.on('finished', function(blob) {
