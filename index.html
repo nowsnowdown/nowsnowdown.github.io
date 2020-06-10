@@ -119,24 +119,31 @@
     Save : function(){
       var gif = new GIF({
         workers: 2,
-        quality: 10
+        quality: 10,
+        background.fillStyle = 'rgba(255, 255, 255, 0)'
       });
 
-      var canvasElement = document.getElementById('defaultCanvas0');
-      var context = canvasElement.getContext('2d');
-      context.fillStyle = 'rgba(255, 255, 255, 0)';
-      console.log(canvasElement)
-      for (var i = 0; i< 100; i++) {
-        console.log(i)
-        gif.addFrame(canvasElement, {delay: 100});
-      }
-
+      gif.addFrame(imageElement);
+//或添加一个canvas对象的像素到当前帧
+gif.addFrame(document.getElementsByTagName('canvas')[0], {
+	delay: 200
+});
+gif.addFrame(document.getElementsByTagName('canvas')[0], {
+	delay: 200
+});
+gif.addFrame(document.getElementsByTagName('canvas')[0], {
+	delay: 200
+});
+//从canvas context复制像素到当前帧
+gif.addFrame(ctx, {
+	copy: true
+});
       gif.on('finished', function(blob) {
         console.log(blob)
         console.log('download')
         const a = document.createElement("a");
         const url = window.URL.createObjectURL(blob);
-        const filename = 'rain.gif';
+        const filename = 'a.gif';
         a.href = url;
         a.download = filename;
         a.click();
