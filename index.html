@@ -115,40 +115,16 @@
       UnicodeControl.setValue(Unicode);
     },
 
-    isPNG : true,
+      isPNG : true,
     Save : function(){
-      var gif = new GIF({
-        workers: 2,
-        quality: 10,
-        transparent:0x000000
-      });
-
-      var canvasElement = document.getElementById('defaultCanvas0');
-      var context = canvasElement.getContext('2d');
-      context.strokeStyle = 'rgba(155, 187, 89, 0)';
-      console.log(canvasElement)
-      for (var i = 0; i< 100; i++) {
-        console.log(i)
-        gif.addFrame(canvasElement, {delay: 1});
+      for(var i= 0;i< 50;i++){
+        setTimeout(() => {
+          saveFrames("The Matrix", "png", 15, 22);
+        }, 30)
       }
-
-      gif.on('finished', function(blob) {
-        console.log(blob)
-        console.log('download')
-        const a = document.createElement("a");
-        const url = window.URL.createObjectURL(blob);
-        const filename = 'rain.gif';
-        a.href = url;
-        a.download = filename;
-        a.click();
-        window.URL.revokeObjectURL(url);
-      });
-    
-      gif.render();
-    },
+ },
   }
-
-
+ 
 
 
   var text, gui, config,bgcolorControl,ShapeControl,LineControl,CountsCont,RandomControl,imageControl,color1Control,color2Control, SpeedControl, pngControl,SaveControl ,SmoothControl2,SaveControl,SizeControl,OpacityControl,ChangeSpeedControl,  UnicodeControl,RotateControl;
